@@ -1,0 +1,45 @@
+﻿@page "/"
+@* One-Way Data Binding *@
+<!--
+    To perform One-Way Data Binding we use the @(at) symbol followed by the property, field or method we want to bind.
+    The Atribute @(at) is responsible to make the Binding between variable in the HTML code to C# -->
+
+<h1>@message </h1>
+
+<h2>@salutation()</h2>
+
+<button @onclick="updateMessage">Update Message</button>
+
+@* Two-Way Data Binding *@
+<!--
+    Adding an input control that is bidirectional to the property value using the @bind attribute
+    Blazor will now automatically detect changes to the DOM element and update a variable, property, or method.
+-->
+<h1>This message came from Two-Way-Data-Binding</h1>
+<h2>The type is: @readMessage</h2>
+<input @bind="@readMessage"/>
+
+
+@code{
+    private string message { get; set; } = "Hello Elton!!";
+    private string readMessage { get; set; }
+
+    /// <summary>
+    /// When the Page is render the message is display at screen.
+    /// </summary>
+    /// <returns>"Welcome to BlazorCourse"</returns>
+    private string salutation()
+    {
+        return "Welcome to BlazorCourse";
+    }
+
+    /// <summary>
+    /// When the event is triggered, this method is called and updates the {message} variable to the defined value.
+    /// </summary>
+    /// <returns>the update of message variable</returns>
+    private void updateMessage()
+    {
+        message = "Hello, Elton, How are you???";
+    }
+
+}

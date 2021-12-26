@@ -61,3 +61,8 @@ Usar uma plataforma .NET para desenvolvimento web do lado do cliente oferece as 
 6- Podemos usar o VS Code para criar aplicações usando a linha de comando;
 7- Trabalhar com Componentes;
 8- Interagir com o código JavaScript.
+
+
+# Reference
+https://github.com/AdrienTorris/awesome-blazor#books
+http://www.macoratti.net/curso_blazor1.htm

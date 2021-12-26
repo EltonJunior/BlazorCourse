@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorServer", "BlazorServe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWebAssembly", "BlazorWebAssembly\BlazorWebAssembly.csproj", "{4D16E666-BA9A-4B11-A81A-C4BD2A35E39B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor-DataBinding", "Blazor-DataBinding\Blazor-DataBinding.csproj", "{AC36FF11-126E-4F40-938F-8577290FD28F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{4D16E666-BA9A-4B11-A81A-C4BD2A35E39B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D16E666-BA9A-4B11-A81A-C4BD2A35E39B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D16E666-BA9A-4B11-A81A-C4BD2A35E39B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC36FF11-126E-4F40-938F-8577290FD28F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC36FF11-126E-4F40-938F-8577290FD28F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC36FF11-126E-4F40-938F-8577290FD28F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC36FF11-126E-4F40-938F-8577290FD28F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
