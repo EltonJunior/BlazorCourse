@@ -21,17 +21,17 @@ public class TaskList
 }
 ```
 #### The Class Task
-<li> **Guid ID** - will be the Global Unic Identify, this will allows to generete a unic ID automaticaly;</li>
-<li> **description** - is the description of Tasks;</li>
-<li> **conclused** - will informe that the Task has been finished;</li>
-<li> **createDate** - will shows the date of tasks.</li>
+<li> <strong>Guid ID</strong> will be the Global Unic Identify, this will allows to generete a unic ID automaticaly;</li>
+<li> <strong>description</strong> is the description of Tasks;</li>
+<li> <strong>conclused</strong> will informe that the Task has been finished;</li>
+<li> <strong>createDate</strong> will shows the date of tasks.</li>
 
 ------------
 ```csharp
 private string newTaskList = "";
 ```
 #### The Class Task
-<li> **newTaskList** - this variable will be the responsible to make the Two-Way-Binding to DOM and conclused the tasks.</li>
+<li> <strong>newTaskList</strong> this variable will be the responsible to make the Two-Way-Binding to DOM and conclused the tasks.</li>
 
 ------------
 
@@ -39,7 +39,7 @@ private string newTaskList = "";
 private List<Task> tasks = new List<Task>();
 ```
 #### The Class Task
-<li> **tasks** - this List will content all task created by user.</li>
+<li> <strong>tasks</strong> this List will content all task created by user.</li>
 
 ------------
 #### Database tasks.Json
@@ -167,3 +167,4 @@ private void removeTask(Guid id)
 ```
 The function **removeTask** uses the Lambda test to find the first result with the ID passed as an argument it and remove it.
 
+![component](task-list.png "image-of-task-list")

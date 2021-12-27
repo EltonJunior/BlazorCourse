@@ -1,16 +1,12 @@
 ﻿@page "/"
-@inject HttpClient http
+@inject HttpClient Http
 
 <h1>Tasks List</h1>
 <hr />
 
 @if (tasks == null)
 {
-    <p>Loading...</p>
-}
-else if (!tasks.Any())
-{
-    <p>it will be displayed in a minute...</p>
+    <p><em>Loading...</em></p>
 }
 else
 {
@@ -20,30 +16,28 @@ else
                 <th>Date</th>
                 <th>Description</th>
                 <th>Status</th>
-                <th>Action</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in tasks)
             {
-            <tr>
-                <td>@item.createDate.ToShortDateString()</td>
-                <td>@item.description</td>
-                <td>
-                    <input type="checkbox" @bind="item.concluded" />
-                    @item.concluded
-                </td>
-                <td>
-                    <button @onclick="@(()=>removeTask(item.ID))">
-                        <i class="oi oi-trash"></i>
-                    </button>
-                </td>
-            </tr>
+                <tr>
+                    <td>@item.createDate.ToShortDateString()</td>
+                    <td>@item.description</td>
+                    <td>
+                        <input type="checkbox" @bind="item.concluded" />
+                        @item.concluded
+                    </td>
+                    <td>
+                        <button @onclick="@(()=>removeTask(item.ID))">
+                            <i class="oi oi-trash"></i>
+                        </button>
+                    </td>
+                </tr>
             }
         </tbody>
     </table>
 }
-
 @if (tasks != null)
 {
     <div class="form-group">
@@ -56,14 +50,6 @@ else
 @code{
     private string newTaskList = "";
 
-    private List<TaskList> tasks = new List<TaskList>();
-
-    protected override async Task OnInitializedAsync()
-    {
-        tasks = await http.GetFromJsonAsync<List<TaskList>>("data/tasklist.json");
-
-    }
-
     public class TaskList
     {
         public Guid ID { get; set; }
@@ -72,24 +58,39 @@ else
         public DateTime createDate { get; set; }
     }
 
+    private List<TaskList> tasks = new List<TaskList>() 
+    {
+        new TaskList(){createDate = DateTime.Now,description = "Study of Blazor",ID = Guid.NewGuid()},
+        new TaskList(){createDate = DateTime.Now,description = "Make Blazor Course",ID = Guid.NewGuid()}
+    };
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        tasks = await Http.GetFromJsonAsync<List<TaskList>>("data/tasklist.json");
+    }
+
     void includeNewTask()
     {
         if (!string.IsNullOrWhiteSpace(newTaskList))
         {
+
             tasks.Add(new TaskList
             {
                 createDate = DateTime.Now,
                 description = newTaskList,
                 ID = Guid.NewGuid()
             });
+
             newTaskList = "";
+
         }
     }
 
     private void removeTask(Guid id)
     {
         tasks.Remove(tasks.First(x => x.ID == id));
+        //Array.Clear(tasks, 0, Array.IndexOf(tasks, id));
     }
 
 }
-
