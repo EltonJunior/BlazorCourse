@@ -1,0 +1,95 @@
+﻿@page "/"
+@inject HttpClient http
+
+<h1>Tasks List</h1>
+<hr />
+
+@if (tasks == null)
+{
+    <p>Loading...</p>
+}
+else if (!tasks.Any())
+{
+    <p>it will be displayed in a minute...</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in tasks)
+            {
+            <tr>
+                <td>@item.createDate.ToShortDateString()</td>
+                <td>@item.description</td>
+                <td>
+                    <input type="checkbox" @bind="item.concluded" />
+                    @item.concluded
+                </td>
+                <td>
+                    <button @onclick="@(()=>removeTask(item.ID))">
+                        <i class="oi oi-trash"></i>
+                    </button>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@if (tasks != null)
+{
+    <div class="form-group">
+        <label>Task</label>
+        <input type="Text" placeholder="Include a Task" @bind="newTaskList" />
+        <button class="btn btn-primary" @onclick="includeNewTask">New Task</button>
+    </div>
+}
+
+@code{
+    private string newTaskList = "";
+
+    private List<TaskList> tasks = new List<TaskList>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        tasks = await http.GetFromJsonAsync<List<TaskList>>("data/tasklist.json");
+
+    }
+
+    public class TaskList
+    {
+        public Guid ID { get; set; }
+        public string description { get; set; }
+        public bool concluded { get; set; }
+        public DateTime createDate { get; set; }
+    }
+
+    void includeNewTask()
+    {
+        if (!string.IsNullOrWhiteSpace(newTaskList))
+        {
+            tasks.Add(new TaskList
+            {
+                createDate = DateTime.Now,
+                description = newTaskList,
+                ID = Guid.NewGuid()
+            });
+            newTaskList = "";
+        }
+    }
+
+    private void removeTask(Guid id)
+    {
+        tasks.Remove(tasks.First(x => x.ID == id));
+    }
+
+}
+
