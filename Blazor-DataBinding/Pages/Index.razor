@@ -17,12 +17,21 @@
 -->
 <h1>This message came from Two-Way-Data-Binding</h1>
 <h2>The type is: @readMessage</h2>
-<input @bind="@readMessage"/>
+<input @bind="@readMessage" />
 
+@* Two-Way Data Binding with event *@
+<!--
+   in the following code snippet, I only want to change the Title property if the user moves the focus away from the input field.
+-->
+
+<h1>@FarFromHere</h1>
+
+<input @bind="FarFromHere" @bind:event="onchange" />
 
 @code{
     private string message { get; set; } = "Hello Elton!!";
     private string readMessage { get; set; }
+    public string FarFromHere { get; set; } = "Blazor";
 
     /// <summary>
     /// When the Page is render the message is display at screen.

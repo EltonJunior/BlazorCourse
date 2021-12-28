@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor-Componets", "Blazor-
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor-TaskList", "Blazor-TaskList\Blazor-TaskList.csproj", "{5AF23861-84DA-4596-884E-1A9CEEC0EE8A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor-TaskList-Components", "Blazor-TaskList-Components\Blazor-TaskList-Components.csproj", "{BBD916DB-F63B-4E08-8C3C-618CDBFA6435}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{5AF23861-84DA-4596-884E-1A9CEEC0EE8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AF23861-84DA-4596-884E-1A9CEEC0EE8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AF23861-84DA-4596-884E-1A9CEEC0EE8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBD916DB-F63B-4E08-8C3C-618CDBFA6435}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBD916DB-F63B-4E08-8C3C-618CDBFA6435}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBD916DB-F63B-4E08-8C3C-618CDBFA6435}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBD916DB-F63B-4E08-8C3C-618CDBFA6435}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

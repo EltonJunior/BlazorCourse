@@ -1,0 +1,11 @@
+﻿<td>@item.createDate.ToShortDateString()</td>
+<td>@item.description</td>
+<td>
+    <input type="checkbox" @bind="item.concluded" />
+    @item.concluded
+</td>
+
+@code {
+    [Parameter]
+    public TaskList item { get; set; }
+}

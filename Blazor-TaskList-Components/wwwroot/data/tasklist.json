@@ -1,0 +1,27 @@
+﻿[
+  {
+    "createdate": "2018-05-06",
+    "description": "Freezing",
+    "concluded": true
+  },
+  {
+    "createdate": "2018-05-07",
+    "description": "Bracing",
+    "concluded": false
+  },
+  {
+    "createdate": "2018-05-08",
+    "description": "Freezing",
+    "concluded": true
+  },
+  {
+    "createdate": "2018-05-09",
+    "description": "Balmy",
+    "concluded": true
+  },
+  {
+    "createdate": "2018-05-10",
+    "description": "Chilly",
+    "concluded": false
+  }
+]

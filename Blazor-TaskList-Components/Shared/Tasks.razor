@@ -1,0 +1,73 @@
+﻿<h1>@Title</h1>
+<hr />
+
+@if (tasks == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in tasks)
+            {
+                <tr>
+                    <IndividualTask item="item"/>
+                    <td>
+                        <button @onclick="@(()=>removeTask(item.ID))">
+                            <i class="oi oi-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+@if (tasks != null)
+{
+    <div class="form-group">
+        <label>Task</label>
+        <input type="Text" placeholder="Include a Task" @bind="newTaskList" />
+        <button class="btn btn-primary" @onclick="includeNewTask">New Task</button>
+    </div>
+}
+
+@code {
+
+    [Parameter]
+    public List<TaskList> tasks { get; set; }
+    [Parameter]
+    public string Title { get; set; }
+
+    private string newTaskList = "";
+
+    void includeNewTask()
+    {
+        if (!string.IsNullOrWhiteSpace(newTaskList))
+        {
+
+            tasks.Add(new TaskList
+            {
+                createDate = DateTime.Now,
+                description = newTaskList,
+                ID = Guid.NewGuid()
+            });
+
+            newTaskList = "";
+
+        }
+    }
+
+    private void removeTask(Guid id)
+    {
+        tasks.Remove(tasks.First(x => x.ID == id));
+        //Array.Clear(tasks, 0, Array.IndexOf(tasks, id));
+    }
+}
